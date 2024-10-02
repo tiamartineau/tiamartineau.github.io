@@ -93,12 +93,14 @@
 .work-hero {
     /* border:2px solid #444; */
     border-radius: 10px;
+    opacity: 0.5;
     /* box-shadow: 0px 0px 5px #444; */
     width: 90%;
     transition: width 1s;
 }
 .work-hero:hover{
     width: 95%;
+    opacity: 1.0;
 }
 
 .work-des {
@@ -560,6 +562,7 @@ label {
 #hero-img {
     margin-top: 50px;
     width: 90%;
+    opacity:opacity: 0.7;
 }
 
 #left-hero {
