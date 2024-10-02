@@ -2,8 +2,6 @@ const staticCacheName = 'site-static-v1';
 const assets = [
     '/Portfolio/',
     '/Portfolio/index.html',
-    '/Portfolio/contact.html',
-    '/Portfolio/legal.html',
     '/Portfolio/work.html',
     '/Portfolio/404.html',
     '/style.css',
