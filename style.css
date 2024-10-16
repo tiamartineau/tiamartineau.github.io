@@ -49,7 +49,7 @@
 }
 .work-card-hero-img{
     width:100%;
-    height:90%;
+    height:95%;
     display: block;
     /* border:1px solid #44444450; */
     /* border-radius: 10px; */
@@ -58,18 +58,6 @@
     left:0;
     right: 0;
 }
-.work-card-hero-img-gif{
-    width:470px;
-    height:470px;
-    /*display: block;
-    /* border:1px solid #44444450; */
-    /* border-radius: 10px; */
-    border-bottom: none;
-    margin:0 auto;
-    left:0;
-    right: 0;
-}
-
 .work-double-row{
     padding-left:120px;
     padding-right: 120px;
