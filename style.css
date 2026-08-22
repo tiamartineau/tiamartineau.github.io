@@ -5,7 +5,7 @@
   --paper-2: #ebe2d6;
   --ink: #171512;
   --muted: #6d665f;
-  --accent: #9d2549;
+  --accent: #b84f70;
   --line: rgba(23, 21, 18, 0.22);
 }
 
@@ -135,44 +135,11 @@ h1 {
   margin-left: auto;
 }
 
-.hero-drawing svg {
+.hero-drawing img {
+  display: block;
   width: 100%;
-  overflow: visible;
-}
-
-.orbit,
-.ejecta,
-.object.ring,
-.little-star {
-  fill: none;
-  stroke: var(--ink);
-}
-
-.orbit {
-  stroke-width: 2.2;
-}
-
-.orbit-two {
-  stroke: var(--accent);
-  stroke-width: 4;
-}
-
-.object.filled {
-  fill: var(--ink);
-}
-
-.object.ring {
-  stroke-width: 3;
-}
-
-.ejecta {
-  stroke: var(--accent);
-  stroke-width: 3;
-  stroke-linecap: round;
-}
-
-.little-star {
-  stroke-width: 2;
+  height: auto;
+  object-fit: contain;
 }
 
 .three-up {
@@ -361,6 +328,17 @@ footer {
     text-decoration: none;
   }
 
+.hero-drawing {
+  width: 55vw;
+  max-width: 220px;
+  margin: 2.5rem 0 0 auto;
+}
+
+.hero-drawing img {
+  width: 100%;
+  height: auto;
+}
+  
   .hero {
     display: block;
     min-height: auto;
