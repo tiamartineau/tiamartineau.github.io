@@ -28,6 +28,11 @@ a {
   color: inherit;
 }
 
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -53,6 +58,7 @@ a {
 .site-nav a {
   text-decoration: none;
   font-size: 0.86rem;
+  transition: color 160ms ease;
 }
 
 .site-nav a:hover,
@@ -60,6 +66,11 @@ a {
 .footer-links a:hover {
   color: var(--accent);
 }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
   min-height: 72vh;
@@ -69,6 +80,10 @@ a {
   align-items: center;
   padding: 7rem 5vw 5rem;
   border-bottom: 1px solid var(--line);
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .eyebrow,
@@ -95,10 +110,6 @@ h1 {
   letter-spacing: -0.055em;
 }
 
-.accent {
-  color: var(--accent);
-}
-
 .intro {
   max-width: 660px;
   margin: 2rem 0 0;
@@ -107,27 +118,73 @@ h1 {
   color: var(--muted);
 }
 
-.hero-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 2rem;
+
+/* =========================================================
+   HERO EMPHASIS
+   ========================================================= */
+
+/* Teaching is the center of the professional identity. */
+.teaching-word {
+  color: var(--accent);
 }
 
-.hero-links a {
+/* Art stays black, with the handmade pink mark beneath it. */
+.art-word {
+  position: relative;
   display: inline-block;
-  border: 1px solid var(--ink);
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+  color: var(--ink);
 }
 
-.hero-links a:hover {
-  background: var(--ink);
-  color: var(--paper);
-  transform: translateY(-2px);
+
+/* =========================================================
+   ANIMATED ART UNDERLINE
+   ========================================================= */
+
+.art-underline {
+  position: absolute;
+  left: -2%;
+  bottom: -0.18em;
+  width: 104%;
+  height: 0.34em;
+  overflow: visible;
+  pointer-events: none;
 }
+
+.art-underline path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /*
+    The SVG path has pathLength="1", so 1 represents
+    the complete length of the line.
+  */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+
+  animation:
+    draw-underline 1.4s
+    cubic-bezier(.65, 0, .35, 1)
+    800ms
+    forwards;
+}
+
+@keyframes draw-underline {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO DOODLE
+   ========================================================= */
 
 .hero-drawing {
   align-self: end;
@@ -141,6 +198,11 @@ h1 {
   height: auto;
   object-fit: contain;
 }
+
+
+/* =========================================================
+   TEACHING / SCIENCE / ART
+   ========================================================= */
 
 .three-up {
   display: grid;
@@ -175,16 +237,17 @@ h1 {
   margin-top: 1.2rem;
   text-decoration: none;
   font-weight: 600;
+  transition: color 160ms ease;
 }
 
 .muted-link {
   opacity: 0.7;
 }
 
-.about-block {
-  padding: 7rem 5vw;
-  background: var(--paper-2);
-}
+
+/* =========================================================
+   EINSTEIN QUOTE
+   ========================================================= */
 
 .quote-section {
   padding: 8rem 5vw;
@@ -200,27 +263,22 @@ h1 {
 
 .einstein-quote p {
   margin: 0;
-
   font-size: clamp(1.5rem, 2.6vw, 2.6rem);
   font-weight: 400;
   font-style: italic;
   line-height: 1.45;
   letter-spacing: -0.015em;
-
   color: var(--ink);
   opacity: 0.68;
 }
 
 .quote-mark {
   position: absolute;
-
   font-family: Georgia, serif;
   font-size: clamp(6rem, 10vw, 10rem);
   line-height: 1;
-
   color: var(--accent);
   opacity: 0.55;
-
   user-select: none;
 }
 
@@ -238,21 +296,19 @@ h1 {
   margin-top: 1.6rem;
   margin-left: 7rem;
   text-align: left;
-
   font-family: "La Belle Aurore", cursive;
   font-size: 2rem;
   font-style: normal;
-
   color: var(--ink);
   opacity: 0.75;
 }
 
-.small-note {
-  color: var(--muted);
-  font-size: 0.92rem !important;
-}
 
-footer {
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+body > footer {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -268,17 +324,25 @@ footer {
 
 .footer-links a {
   text-decoration: none;
+  transition: color 160ms ease;
 }
 
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 850px) {
+
   .hero {
     grid-template-columns: 1fr;
+    min-height: auto;
     padding-top: 5rem;
   }
 
   .hero-drawing {
-    width: min(72vw, 390px);
-    margin: 0 auto;
+    width: min(65vw, 330px);
+    margin: 1rem 0 0 auto;
   }
 
   .three-up {
@@ -286,20 +350,20 @@ footer {
   }
 
   .panel {
+    min-height: 0;
     border-right: 0;
     border-bottom: 1px solid var(--line);
-    min-height: 0;
   }
 
   .panel:last-child {
     border-bottom: 0;
   }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 620px) {
 
@@ -310,39 +374,29 @@ footer {
 
   .wordmark {
     display: block;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.7rem;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    text-decoration: none;
   }
 
   .site-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem 0.85rem;
+    gap: 0.4rem 0.9rem;
   }
 
   .site-nav a {
     font-size: 0.82rem;
-    text-decoration: none;
   }
 
-.hero-drawing {
-  width: 55vw;
-  max-width: 220px;
-  margin: 2.5rem 0 0 auto;
-}
 
-.hero-drawing img {
-  width: 100%;
-  height: auto;
-}
-  
+  /* HERO */
+
   .hero {
     display: block;
     min-height: auto;
-    padding: 3.8rem 1.1rem 2.5rem;
+    padding: 3.8rem 1.1rem 2.75rem;
   }
 
   .eyebrow {
@@ -364,24 +418,36 @@ footer {
     line-height: 1.55;
   }
 
-  /* Navigation already provides these links on mobile. */
-  .hero-links {
-    display: none;
+
+  /* Keep the underline appropriately delicate on mobile. */
+
+  .art-underline {
+    bottom: -0.2em;
+    height: 0.38em;
   }
+
+  .art-underline path {
+    stroke-width: 4;
+  }
+
+
+  /* DOODLE */
 
   .hero-drawing {
     position: static;
     width: 48vw;
     max-width: 190px;
-    margin: 2.5rem 0 0 auto;
+    margin: 2.75rem 0 0 auto;
   }
 
-  .hero-drawing img,
-  .hero-drawing svg {
+  .hero-drawing img {
     display: block;
     width: 100%;
     height: auto;
   }
+
+
+  /* CONTENT SECTIONS */
 
   .three-up {
     display: block;
@@ -401,6 +467,9 @@ footer {
   .panel p:not(.panel-number) {
     font-size: 0.95rem;
   }
+
+
+  /* QUOTE */
 
   .quote-section {
     padding: 5rem 1.1rem;
@@ -436,7 +505,10 @@ footer {
     font-size: 1.6rem;
   }
 
-  footer {
+
+  /* FOOTER */
+
+  body > footer {
     display: block;
     padding: 1.5rem 1.1rem;
   }
@@ -446,9 +518,20 @@ footer {
   }
 }
 
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
   * {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+
+  .art-underline path {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
