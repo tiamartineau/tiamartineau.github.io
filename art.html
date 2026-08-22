@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Art by Tia Martineau."
+  >
+
+  <title>Art · Tia Martineau</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="art-page">
+
+  <header class="site-header art-header">
+
+    <a class="wordmark" href="index.html">
+      TIA MARTINEAU
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="science.html">Science</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="art.html" aria-current="page">Art</a>
+    </nav>
+
+  </header>
+
+
+  <main class="art-main">
+
+    <section class="art-intro">
+
+      <p class="art-kicker">
+        digital painting · portraiture · bodies · color · horror
+      </p>
+
+      <h1 class="art-title">
+        ART
+      </h1>
+
+      <p class="art-note">
+        Paintings, studies, portraits, and experiments.
+      </p>
+
+    </section>
+
+
+    <section class="art-gallery">
+
+      <figure class="art-piece art-piece-1 reveal">
+        <img
+          src="assets/img/art/billie.JPG"
+          alt="Blue and orange portrait painting."
+          loading="eager"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-2 reveal">
+        <img
+          src="assets/img/art/catskull.JPG"
+          alt="Monochrome painted skull on a black background."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-3 reveal">
+        <img
+          src="assets/img/art/slasher.JPG"
+          alt="Screaming portrait with strong blue and orange lighting."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-4 reveal">
+        <img
+          src="assets/img/art/sheets.JPG"
+          alt="Pale intertwined figures painted among folds of fabric."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-5 reveal">
+        <img
+          src="assets/img/art/firehand.JPG"
+          alt="Painted hand with orange and blue lighting against black."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-6 reveal">
+        <img
+          src="assets/img/art/tigermouth.JPG"
+          alt="Close cropped painting of an open mouth in red and pink."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-7 reveal">
+        <img
+          src="assets/img/art/dandelion.JPG"
+          alt="Dark painting of a dandelion with orange motion."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-8 reveal">
+        <img
+          src="assets/img/art/medusa.JPG"
+          alt="Dark green and purple horror painting with many hands."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-9 reveal">
+        <img
+          src="assets/img/art/neck.JPG"
+          alt="Close cropped neck study painted against black."
+          loading="lazy"
+        >
+      </figure>
+
+
+      <figure class="art-piece art-piece-10 reveal">
+        <img
+          src="assets/img/art/self.JPG"
+          alt="Self portrait with colorful glitch-like overlays."
+          loading="lazy"
+        >
+      </figure>
+
+    </section>
+
+
+    <section class="art-secondary">
+
+      <p>
+        More studies, portraits, and experiments.
+      </p>
+
+      <div class="art-secondary-grid">
+
+        <img src="assets/img/art/whitney.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/borrowedlight.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/solitude.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/tear.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/neckcollar.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/twisty.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/marie.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/rose.JPG" alt="" loading="lazy">
+        <img src="assets/img/art/balloons.JPG" alt="" loading="lazy">
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="art-footer">
+
+    <p>© Tia Martineau</p>
+
+    <a href="index.html">
+      Back home
+    </a>
+
+  </footer>
+
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+
+</body>
+
+</html>

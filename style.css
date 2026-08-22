@@ -535,3 +535,402 @@ body > footer {
     stroke-dashoffset: 0;
   }
 }
+
+/* =========================================================
+   ART PAGE
+   ========================================================= */
+
+.art-page {
+  background: #080808;
+  color: #f2ece2;
+}
+
+.art-page .site-header {
+  border-bottom-color: rgba(242, 236, 226, 0.14);
+}
+
+.art-page .wordmark,
+.art-page .site-nav a {
+  color: #f2ece2;
+}
+
+.art-page .site-nav a:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   ART INTRO
+   ========================================================= */
+
+.art-main {
+  overflow: hidden;
+}
+
+.art-intro {
+  padding: 7rem 5vw 9rem;
+}
+
+.art-kicker {
+  margin: 0 0 2rem;
+
+  color: var(--accent);
+
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.art-title {
+  margin: 0;
+
+  font-size: clamp(6rem, 22vw, 18rem);
+  line-height: 0.72;
+  letter-spacing: -0.08em;
+
+  color: #f2ece2;
+}
+
+.art-note {
+  max-width: 520px;
+
+  margin: 4rem 0 0;
+
+  color: rgba(242, 236, 226, 0.55);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ART GALLERY
+   ========================================================= */
+
+.art-gallery {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 8rem 1.5rem;
+
+  padding: 2rem 4vw 12rem;
+}
+
+.art-piece {
+  margin: 0;
+
+  min-width: 0;
+
+  position: relative;
+}
+
+.art-piece img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  transition:
+    transform 500ms cubic-bezier(.22, 1, .36, 1),
+    filter 500ms ease;
+}
+
+
+/* First portrait: large and dominant */
+
+.art-piece-1 {
+  grid-column: 1 / span 7;
+}
+
+
+/* Skull: smaller and low */
+
+.art-piece-2 {
+  grid-column: 9 / span 3;
+  align-self: end;
+  margin-top: 18rem;
+}
+
+
+/* Slasher: nearly full width */
+
+.art-piece-3 {
+  grid-column: 2 / span 10;
+}
+
+
+/* Pale figures: left */
+
+.art-piece-4 {
+  grid-column: 1 / span 5;
+}
+
+
+/* Orange-blue hand: right */
+
+.art-piece-5 {
+  grid-column: 8 / span 4;
+  margin-top: 10rem;
+}
+
+
+/* Mouth: huge */
+
+.art-piece-6 {
+  grid-column: 2 / span 9;
+}
+
+
+/* Dandelion: deliberately small */
+
+.art-piece-7 {
+  grid-column: 8 / span 3;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+
+/* Horror figure */
+
+.art-piece-8 {
+  grid-column: 1 / span 6;
+}
+
+
+/* Neck crop */
+
+.art-piece-9 {
+  grid-column: 8 / span 4;
+  margin-top: 14rem;
+}
+
+
+/* Glitch self portrait closes the sequence */
+
+.art-piece-10 {
+  grid-column: 3 / span 7;
+  margin-top: 5rem;
+}
+
+
+/* =========================================================
+   REVEAL MOTION
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .art-piece:nth-child(odd):hover img {
+    transform: scale(1.018) rotate(-0.4deg);
+  }
+
+  .art-piece:nth-child(even):hover img {
+    transform: scale(1.018) rotate(0.4deg);
+  }
+
+}
+
+
+/* =========================================================
+   SECONDARY WORK
+   ========================================================= */
+
+.art-secondary {
+  padding: 8rem 5vw 10rem;
+
+  border-top: 1px solid rgba(242, 236, 226, 0.13);
+}
+
+.art-secondary > p {
+  margin: 0 0 3rem;
+
+  color: rgba(242, 236, 226, 0.5);
+
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.art-secondary-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+}
+
+.art-secondary-grid img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  aspect-ratio: 4 / 5;
+
+  opacity: 0.78;
+
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .art-secondary-grid img:hover {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+
+}
+
+
+/* =========================================================
+   ART FOOTER
+   ========================================================= */
+
+.art-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  padding: 2rem 5vw;
+
+  border-top: 1px solid rgba(242, 236, 226, 0.13);
+
+  color: rgba(242, 236, 226, 0.55);
+
+  font-size: 0.85rem;
+}
+
+.art-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.art-footer a:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   ART PAGE MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .art-intro {
+    padding: 4rem 1.1rem 6rem;
+  }
+
+  .art-title {
+    font-size: clamp(5rem, 30vw, 8rem);
+  }
+
+  .art-note {
+    margin-top: 2.5rem;
+  }
+
+
+  .art-gallery {
+    display: block;
+
+    padding: 0 1rem 6rem;
+  }
+
+
+  .art-piece {
+    width: 100%;
+
+    margin: 0 0 4rem;
+  }
+
+
+  .art-piece-2,
+  .art-piece-5,
+  .art-piece-7,
+  .art-piece-9 {
+    width: 72%;
+    margin-left: auto;
+  }
+
+
+  .art-piece-4,
+  .art-piece-8 {
+    width: 82%;
+  }
+
+
+  .art-piece-3,
+  .art-piece-6 {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+  }
+
+
+  .art-secondary {
+    padding: 5rem 1rem 6rem;
+  }
+
+
+  .art-secondary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+
+  .art-footer {
+    padding: 1.5rem 1.1rem;
+  }
+
+}
+
+
+/* =========================================================
+   ART PAGE REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.is-visible {
+    transition: none;
+  }
+
+  .art-piece img,
+  .art-secondary-grid img {
+    transition: none;
+  }
+
+}
