@@ -934,3 +934,866 @@ body > footer {
   }
 
 }
+
+/* =========================================================
+   SCIENCE PAGE
+   ========================================================= */
+
+.science-main {
+  overflow: hidden;
+}
+
+.science-accent {
+  color: var(--accent);
+}
+
+.reach-out-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 160ms ease;
+}
+
+.reach-out-link:hover {
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+/* =========================================================
+   SCIENCE HERO
+   ========================================================= */
+
+.science-hero {
+  padding: 6rem 5vw 7rem;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.science-hero h1 {
+  max-width: 980px;
+
+  margin: 0;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.science-intro {
+  max-width: 720px;
+
+  margin: 2.5rem 0 0;
+
+  color: var(--muted);
+
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SCIENCE FEATURE
+   ========================================================= */
+
+.science-feature {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(280px, 0.65fr);
+
+  gap: 5rem;
+
+  align-items: center;
+
+  padding: 7rem 5vw;
+
+  background: var(--paper-2);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.science-visual {
+  margin: 0;
+}
+
+.science-visual-large img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.science-visual figcaption {
+  margin-top: 0.8rem;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.science-copy {
+  max-width: 520px;
+}
+
+.science-copy h2,
+.science-topic-heading h2,
+.science-paper h2,
+.science-current h2 {
+  margin: 0 0 1.5rem;
+
+  font-size: clamp(2.5rem, 4.8vw, 5rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.science-copy p:not(.panel-number) {
+  margin: 0 0 1.4rem;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SCIENCE TOPICS
+   ========================================================= */
+
+.science-topics {
+  padding: 7rem 5vw;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.science-topic-heading {
+  max-width: 760px;
+
+  margin-bottom: 4rem;
+}
+
+.science-topic-list {
+  border-top: 1px solid var(--line);
+}
+
+.science-topic-item {
+  display: grid;
+
+  grid-template-columns:
+    minmax(200px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 4rem;
+
+  padding: 2.3rem 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.science-topic-item h3 {
+  margin: 0;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.science-topic-item p {
+  max-width: 640px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SELECTED PAPER
+   ========================================================= */
+/* =========================================================
+   PUBLICATIONS
+   ========================================================= */
+
+.science-publications {
+  padding: 7rem 5vw;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.science-publications-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 7rem;
+}
+
+.science-publications h2 {
+  margin: 0 0 1.5rem;
+
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.science-publications-intro {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+/* PUBLICATION LIST */
+
+.publication-list {
+  border-top: 1px solid var(--line);
+}
+
+.publication-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  padding: 2rem 0;
+
+  border-bottom: 1px solid var(--line);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    padding-left 180ms ease,
+    color 180ms ease;
+}
+
+.publication-main {
+  display: grid;
+
+  grid-template-columns: 70px minmax(0, 1fr);
+
+  gap: 1.5rem;
+}
+
+.publication-year {
+  color: var(--accent);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.publication-item h3 {
+  max-width: 720px;
+
+  margin: 0 0 0.7rem;
+
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.publication-item p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.9rem;
+}
+
+.publication-arrow {
+  flex: 0 0 auto;
+
+  font-size: 1.2rem;
+}
+
+.publication-scholar {
+  display: inline-block;
+
+  margin-top: 1.5rem;
+
+  color: var(--ink);
+
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.publication-scholar:hover {
+  color: var(--accent);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+  .publication-item:hover {
+    padding-left: 0.4rem;
+    color: var(--accent);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+  .science-publications {
+    padding: 5rem 1.1rem;
+  }
+
+  .science-publications-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .publication-main {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+}
+
+
+.science-paper {
+  padding: 8rem 5vw;
+
+  background: var(--paper-2);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.science-paper-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(230px, 0.55fr);
+
+  gap: 6rem;
+}
+
+.science-paper-title {
+  max-width: 850px;
+
+  margin: 2rem 0 0;
+
+  color: var(--ink);
+
+  font-size: clamp(1.45rem, 2.7vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.science-paper-meta {
+  margin: 1rem 0 0;
+
+  color: var(--muted);
+}
+
+.science-paper-description {
+  max-width: 700px;
+
+  margin: 2rem 0 0;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+.science-paper-side {
+  align-self: end;
+}
+
+.science-paper-side p {
+  margin: 0;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CURRENT INTERESTS
+   ========================================================= */
+
+.science-current {
+  padding: 8rem 5vw;
+}
+
+.science-current-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(300px, 1.1fr);
+
+  gap: 5rem;
+
+  align-items: start;
+}
+
+.science-current-grid > div {
+  max-width: 680px;
+}
+
+.science-current p:not(.panel-number) {
+  margin: 0 0 1.4rem;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SCIENCE PAGE MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .science-hero {
+    padding: 4rem 1.1rem 5rem;
+  }
+
+  .science-hero h1 {
+    font-size: clamp(3.4rem, 15vw, 5rem);
+    line-height: 0.95;
+  }
+
+  .science-intro {
+    margin-top: 2rem;
+
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+
+  .science-feature,
+  .science-topics,
+  .science-paper,
+  .science-current {
+    padding: 5rem 1.1rem;
+  }
+
+
+  .science-feature {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+
+  .science-copy {
+    max-width: none;
+  }
+
+
+  .science-topic-heading {
+    margin-bottom: 2.5rem;
+  }
+
+
+  .science-topic-item {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+
+    padding: 1.8rem 0;
+  }
+
+
+  .science-paper-grid,
+  .science-current-grid {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+
+  .science-paper-side {
+    align-self: auto;
+
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--line);
+  }
+
+}
+
+/* =========================================================
+   TEACHING PAGE
+   ========================================================= */
+
+.teaching-main {
+  overflow: hidden;
+}
+
+.teaching-accent {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.teaching-hero {
+  padding: 6rem 5vw 7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-hero h1 {
+  max-width: 1050px;
+  margin: 0;
+
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.teaching-intro {
+  max-width: 760px;
+  margin: 2.5rem 0 0;
+
+  color: var(--muted);
+
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SHARED HEADINGS
+   ========================================================= */
+
+.teaching-section-heading h2,
+.teaching-evidence h2,
+.teaching-friction h2,
+.teaching-background h2 {
+  margin: 0;
+
+  font-size: clamp(2.7rem, 5vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   LEARNING ENVIRONMENT
+   ========================================================= */
+
+.teaching-environment {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(320px, 1.15fr);
+
+  gap: 6rem;
+
+  padding: 8rem 5vw;
+
+  background: var(--paper-2);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-environment-copy {
+  max-width: 720px;
+}
+
+.teaching-environment-copy p {
+  margin: 0 0 1.5rem;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   PRACTICE
+   ========================================================= */
+
+.teaching-practice {
+  padding: 8rem 5vw;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-practice .teaching-section-heading {
+  max-width: 760px;
+  margin-bottom: 4rem;
+}
+
+.teaching-practice-list {
+  border-top: 1px solid var(--line);
+}
+
+.teaching-practice-item {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 0.55fr)
+    minmax(0, 1.45fr);
+
+  gap: 5rem;
+
+  padding: 2.4rem 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-practice-item h3 {
+  margin: 0;
+
+  color: var(--accent);
+
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+.teaching-practice-item p {
+  max-width: 670px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TEACHING APPROACH
+   ========================================================= */
+
+.teaching-evidence {
+  padding: 8rem 5vw;
+
+  background: var(--paper-2);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-evidence-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(320px, 1.15fr);
+
+  gap: 6rem;
+}
+
+.teaching-evidence-copy {
+  max-width: 780px;
+}
+
+.teaching-evidence-copy > p {
+  margin: 0 0 1.5rem;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.teaching-evidence-copy > p a {
+  color: var(--ink);
+
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.teaching-evidence-copy > p a:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   REFERENCES
+   ========================================================= */
+
+.teaching-references {
+  margin-top: 3.5rem;
+
+  border-top: 1px solid var(--line);
+}
+
+.teaching-reference {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(180px, 0.65fr);
+
+  gap: 2rem;
+
+  padding: 1.6rem 0;
+
+  border-bottom: 1px solid var(--line);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    padding-left 180ms ease;
+}
+
+.reference-title {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.reference-meta {
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+
+  align-self: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .teaching-reference:hover {
+    color: var(--accent);
+    padding-left: 0.45rem;
+  }
+
+}
+
+
+/* =========================================================
+   PRODUCTIVE FRICTION
+   ========================================================= */
+
+.teaching-friction {
+  padding: 8rem 5vw;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.teaching-friction-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(320px, 1.15fr);
+
+  gap: 6rem;
+}
+
+.teaching-friction-grid > div {
+  max-width: 700px;
+}
+
+.teaching-friction p:not(.panel-number) {
+  margin: 0 0 1.5rem;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.teaching-background {
+  padding: 8rem 5vw;
+
+  background: var(--paper-2);
+}
+
+.teaching-background-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(320px, 1.15fr);
+
+  gap: 6rem;
+}
+
+.teaching-background-grid > div {
+  max-width: 700px;
+}
+
+.teaching-background p:not(.panel-number) {
+  margin: 0 0 1.5rem;
+
+  color: var(--muted);
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .teaching-hero {
+    padding: 4rem 1.1rem 5rem;
+  }
+
+  .teaching-hero h1 {
+    font-size: clamp(3.3rem, 14vw, 5rem);
+    line-height: 0.95;
+  }
+
+  .teaching-intro {
+    margin-top: 2rem;
+
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+
+  .teaching-environment,
+  .teaching-practice,
+  .teaching-evidence,
+  .teaching-friction,
+  .teaching-background {
+    padding: 5rem 1.1rem;
+  }
+
+
+  .teaching-environment,
+  .teaching-evidence-grid,
+  .teaching-friction-grid,
+  .teaching-background-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+
+  .teaching-practice-item {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+
+  .teaching-reference {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+
+    padding: 1.4rem 0;
+  }
+
+}
