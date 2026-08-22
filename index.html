@@ -1,104 +1,126 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <!--     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159411627-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-159411627-1');
-    </script> -->
-    <!-- Caching Disabler-->
-        <meta http-equiv="Pragma" content="no-cache">
-        <meta http-equiv="Expires" content="-1">
-        <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-    
-    
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <meta name="Description"
-        content="Tia Martineau www.tiamartineau.com" />
-    <title>Tia Martineau</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="apple-touch-icon" href="assets/img/favicon.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
-    <meta name="theme-color" content="#FFE1C4">
-    <script src="assets/js/app.js"></script>
-    <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tia Martineau — physicist, educator, and artist.">
+  <title>Tia Martineau</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="index-body" style="overflow: hidden;">
-    <div>
-        <nav class="nav-desk">
-            <center>
-                <div class="nav-logo">
-                    <a href="index.html"><img id="logo" src="assets/img/logo2.png"></a>
-                </div>
-                <div class="nav-items">
-                    <ul>
-                        <li><span><a href="https://scholar.google.com/citations?user=D6DJokoAAAAJ&hl=en">Google Scholar</a></span></li>
-                        <li><span><a href="work.html">About</a></span></li>
-                    </ul>
-                </div>
-            </center>		
-        </nav>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="index-new.html">TIA MARTINEAU</a>
 
-        <div class="animated fadeIn row" style="width:100vw;animation-duration: 1.5s;">
-            <div class="col-md-6" id="left-hero">
-                <h1 class="hero-tag"><span class="typer" id="main" data-words="Hi, I'm Tia." data-delay="100"
-                        data-deleteDelay="1000" data-loop="1" style="color:blue!important;"></span>
-                    &nbsp;</h1>
-                <p class="hero-des">I am an Assistant Teaching Professor at the University of New England. I completed my graduate work in numerical relativity, studying black hole–neutron star mergers. I'm committed to expanding access to physics education, creating learning environments where individuals from all backgrounds can see themselves as scientists.
-                </p>
-                <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
-                <button class="animated bounce delay-4s learn-btn">
-                    <a href="work.html">Learn More</a>
-                </button>
-                <a href="mailto:tmartineau1@une.edu"><button class="contact-btn">
-                        Contact Me
-                    </button></a>
-                <div class="social-icons">
-                    <a target="_blank" href="mailto:tmartineau1@une.edu"><i class="fas fa-envelope"></i></a>
-                    <a target="_blank" href="https://instagram.com/tia.makes.things"><i class="fab fa-instagram"></i></a>
-                    <a target="_blank" href="https://github.com/tiamartineau"><i class="fab fa-github"></i></a>
-                    <a target="_blank" href="https://linkedin.com/in/tia-martineau"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#science">Science</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#art">Art</a>
+      <a href="https://scholar.google.com/citations?user=D6DJokoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    </nav>
+  </header>
 
-            <div class="col-md-6" id="hero-right">
-                <img id="hero-img" src="assets/img/4uzXdax.jpg">
-            </div>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">physicist · educator · artist</p>
 
+        <h1>
+          I work with simulations,
+          <span class="accent">teach physics,</span>
+          and make art.
+        </h1>
+
+        <p class="intro">
+          I’m Tia Martineau, an Assistant Teaching Professor at the University
+          of New England. My work moves between physics education, computational
+          astrophysics, and visual art.
+        </p>
+
+        <div class="hero-links">
+          <a href="#teaching">Teaching</a>
+          <a href="#science">Science</a>
+          <a href="#art">Art</a>
         </div>
+      </div>
+
+      <div class="hero-drawing" aria-hidden="true">
+        <svg viewBox="0 0 430 330" role="img">
+          <path class="orbit orbit-one"
+                d="M45 224 C114 61, 268 59, 360 178 C398 227, 355 285, 265 277 C160 266, 85 220, 45 224 Z"/>
+          <path class="orbit orbit-two"
+                d="M86 238 C139 139, 263 111, 340 177"/>
+          <circle class="object filled" cx="236" cy="172" r="18"/>
+          <circle class="object ring" cx="302" cy="193" r="37"/>
+          <path class="ejecta"
+                d="M323 154 C355 115, 383 94, 409 88 M334 167 C375 144, 397 139, 420 142"/>
+          <path class="little-star"
+                d="M96 84 l8 17 18 3 -13 12 3 18 -16 -9 -16 9 3 -18 -13 -12 18 -3z"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="three-up" aria-label="Areas of work">
+      <article id="teaching" class="panel">
+        <p class="panel-number">01</p>
+        <h2>Teaching</h2>
+        <p>
+          Physics education, modeling, mentorship, and helping students become
+          comfortable doing difficult things imperfectly.
+        </p>
+        <a class="text-link" href="work.html">More about teaching →</a>
+      </article>
+
+      <article id="science" class="panel">
+        <p class="panel-number">02</p>
+        <h2>Science</h2>
+        <p>
+          My research background is in numerical relativity and compact-object
+          mergers, especially black hole–neutron star systems, ejecta, and
+          multimessenger astrophysics.
+        </p>
+        <a class="text-link" href="work.html">Research background →</a>
+      </article>
+
+      <article id="art" class="panel">
+        <p class="panel-number">03</p>
+        <h2>Art</h2>
+        <p>
+          Portraits, horror, strange crops, bright color, and whatever I am
+          currently trying to figure out with my hands.
+        </p>
+        <a class="text-link muted-link" href="#art-note">Gallery coming soon →</a>
+      </article>
+    </section>
+
+    <section id="about" class="quote-section">
+
+  <blockquote class="einstein-quote">
+    <span class="quote-mark quote-open" aria-hidden="true">“</span>
+
+    <p>
+      After a certain high level of technical skill is achieved,
+      science and art tend to coalesce in esthetics, plasticity, and form.
+      The greatest scientists are artists as well.
+    </p>
+
+    <footer class="quote-attribution">
+      Albert Einstein
+    </footer>
+
+    <span class="quote-mark quote-close" aria-hidden="true">”</span>
+  </blockquote>
+
+</section>
+  </main>
+
+  <footer>
+    <p>© Tia Martineau</p>
+    <div class="footer-links">
+      <a href="https://scholar.google.com/citations?user=D6DJokoAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://linkedin.com/in/tia-martineau">LinkedIn</a>
+      <a href="mailto:tmartineau1@une.edu">Email</a>
     </div>
-    <div class="menu-wrap">
-        <input type="checkbox" class="toggler">
-        <div class="hamburger">
-            <div></div>
-        </div>
-        <div class="menu">
-            <div>
-                <div>
-                    <ul>
-                        <li><a href="#" style="text-decoration: line-through;">Home</a></li>
-                        <li><a href="https://scholar.google.com/citations?user=D6DJokoAAAAJ&hl=en">Google Scholar</a></li>
-                        <li><a href="work.html">About</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+  </footer>
 </body>
-
 </html>
