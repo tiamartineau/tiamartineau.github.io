@@ -717,6 +717,26 @@ body > footer {
   margin-top: 5rem;
 }
 
+/* Inside */
+.art-piece-11 {
+  grid-column: 2 / span 5;
+  margin-top: 4rem;
+}
+
+/* Love */
+.art-piece-12 {
+  grid-column: 7 / span 5;
+  margin-top: 6rem;
+}
+
+/* Keep the full portrait-oriented images visible */
+.art-piece-11 img,
+.art-piece-12 img {
+  width: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  margin: 0 auto;
+}
 
 /* =========================================================
    REVEAL MOTION
@@ -894,7 +914,19 @@ body > footer {
     margin-left: -1rem;
   }
 
+  .art-piece-11,
+  .art-piece-12 {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .art-piece-11 img,
+  .art-piece-12 img {
+    width: 100%;
+    max-height: none;
+  }
+  
   .art-secondary {
     padding: 5rem 1rem 6rem;
   }
