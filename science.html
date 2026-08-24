@@ -109,68 +109,494 @@
 
     </section>
 
+<!-- ===================================================
+     SCIENTIFIC TIMELINE
+     =================================================== -->
 
-    <!-- ===================================================
-         TOPICS
-         =================================================== -->
+<section class="science-timeline">
 
-    <section class="science-topics">
+  <div class="science-timeline-heading">
 
-      <div class="science-topic-heading">
-        <p class="panel-number">02</p>
+    <div>
+      <p class="panel-number">02</p>
 
-        <h2>
-          What I have worked on
-        </h2>
+      <h2>
+        What I have worked on
+      </h2>
+
+      <p class="science-timeline-intro">
+      </p>
+    </div>
+
+
+    <div
+      class="timeline-mode"
+      role="group"
+      aria-label="Description level"
+    >
+      <button
+        type="button"
+        class="active"
+        data-timeline-mode="technical"
+        aria-pressed="true"
+      >
+        Technical
+      </button>
+
+      <button
+        type="button"
+        data-timeline-mode="accessible"
+        aria-pressed="false"
+      >
+        Accessible
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="research-timeline">
+
+    <div class="timeline-spine" aria-hidden="true">
+      <div class="timeline-spine-fill"></div>
+    </div>
+
+
+    <!-- DARK MATTER -->
+
+    <div class="timeline-chapter">
+      Dark matter detection
+    </div>
+
+
+    <article class="timeline-milestone">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
       </div>
 
+      <div class="timeline-card">
 
-      <div class="science-topic-list">
+        <button
+          class="timeline-head"
+          type="button"
+          aria-expanded="false"
+        >
 
-        <div class="science-topic-item">
-          <h3>Tidal disruption</h3>
+          <div>
 
-          <p>
-            When, and under what conditions, a neutron star is disrupted before
-            plunging into the black hole.
-          </p>
-        </div>
+            <div class="timeline-eyebrow">
+              2016 · Fermilab · Batavia, Illinois
+            </div>
 
+            <h3>
+              Neutron backgrounds in direct dark matter detection
+            </h3>
 
-        <div class="science-topic-item">
-          <h3>Gravitational waveforms</h3>
+            <p
+              class="timeline-summary timeline-mode-text"
+              data-technical="Developed a  calculator for anisotropic neutron production from (α,n) reactions in detector materials, including reaction rates, neutron energies, and emission angles."
+              data-accessible="I studied a source of background that can imitate dark matter signals and wrote software to predict the neutrons produced naturally inside detector materials."
+            ></p>
 
-          <p>
-            Numerical waveforms from black hole-neutron star systems and their use
-            in comparisons with analytical and semi-analytical waveform models.
-          </p>
-        </div>
+          </div>
 
+          <span class="timeline-plus" aria-hidden="true">+</span>
 
-        <div class="science-topic-item">
-          <h3>Ejecta & composition</h3>
-
-          <p>
-            The amount, geometry, and electron fraction of matter dynamically ejected
-            during merger, including implications for r-process nucleosynthesis and
-            electromagnetic counterparts.
-          </p>
-        </div>
+        </button>
 
 
-        <div class="science-topic-item">
-          <h3>Post-merger matter</h3>
+        <div class="timeline-details">
 
-          <p>
-            Low-mass accretion disks and bound material remaining outside the black
-            hole after merger.
-          </p>
+          <p
+            class="timeline-mode-text"
+            data-technical="Direct-detection experiments must distinguish potential dark matter interactions from nuclear-recoil backgrounds. I worked on neutrons produced through alpha-induced (α,n) reactions in detector materials and developed a  calculator for the anisotropic reaction rates and the energies and angles of outgoing neutrons. The calculations used experimental (α,n) reaction data from the Japanese Atomic Energy Agency and were motivated by background characterization for experiments such as PICO-2L."
+            data-accessible="Dark matter detectors search for extremely rare interactions, but ordinary processes inside the detector can sometimes create very similar signals. I studied one such process: neutrons created when alpha particles interact with detector materials. I built software to predict how often those reactions occur and what the resulting neutrons look like."
+          ></p>
+
+          <div class="timeline-meta">
+
+            <div class="timeline-meta-block">
+              <span>Methods</span>
+              Python · nuclear reaction modeling · evaluated nuclear data
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Mentor</span>
+              Dr. Alan Robinson
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Context</span>
+              Direct detection · PICO-2L backgrounds
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
-    </section>
+    </article>
 
+
+    <article class="timeline-milestone">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
+      </div>
+
+      <div class="timeline-card">
+
+        <button
+          class="timeline-head"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <div>
+
+            <div class="timeline-eyebrow">
+              2017 · University of Washington · Seattle, Washington
+            </div>
+
+            <h3>
+              High-frequency axion resonators
+            </h3>
+
+            <p
+              class="timeline-summary timeline-mode-text"
+              data-technical="Helped construct and test segmented dielectric microwave resonators designed to extend axion dark matter searches to higher frequencies."
+              data-accessible="I helped build unusual microwave cavities designed to search for axion dark matter in a frequency range that standard detectors could not easily reach."
+            ></p>
+
+          </div>
+
+          <span class="timeline-plus" aria-hidden="true">+</span>
+
+        </button>
+
+
+        <div class="timeline-details">
+
+          <p
+            class="timeline-mode-text"
+            data-technical="Working with the ADMX team and collaborators from the University of Washington and University of Western Australia, I helped develop prototypes of the segmented dielectric 'Pizza Resonator.' The project explored quasi-TM resonant modes, dielectric tuning strategies, and reflection and transmission measurements with network analyzers for high-frequency axion haloscope searches."
+            data-accessible="Axions are another possible form of dark matter. One way to search for them is with resonant microwave cavities inside strong magnetic fields. I helped build and test a new segmented cavity design, nicknamed the Pizza Resonator, intended to search at higher frequencies than the conventional ADMX setup could easily reach."
+          ></p>
+
+          <div class="timeline-meta">
+
+            <div class="timeline-meta-block">
+              <span>Methods</span>
+              Microwave resonators · hardware prototyping · network analyzer measurements
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Mentor</span>
+              Dr. Gray Rybka
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Collaboration</span>
+              ADMX · UW · University of Western Australia
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- FIELD SHIFT -->
+
+    <div class="timeline-field-shift">
+
+      <span>Field shift</span>
+
+      <p
+        class="timeline-mode-text"
+        data-technical="From experimental dark matter detection to computational strong-gravity astrophysics and numerical relativity."
+        data-accessible="My research direction changed substantially: from laboratory dark matter searches to computer simulations of black holes, neutron stars, and strong gravity."
+      ></p>
+
+    </div>
+
+
+    <!-- STRONG GRAVITY -->
+
+    <div class="timeline-chapter">
+      Strong gravity + compact objects
+    </div>
+
+
+    <article class="timeline-milestone">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
+      </div>
+
+      <div class="timeline-card">
+
+        <button
+          class="timeline-head"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <div>
+
+            <div class="timeline-eyebrow">
+              2020 onward · Numerical relativity
+            </div>
+
+            <h3>
+              Black hole-neutron star mergers
+            </h3>
+
+            <p
+              class="timeline-summary timeline-mode-text"
+              data-technical="Moved into numerical relativity, relativistic hydrodynamics, and large-scale simulations of black hole-neutron star binaries."
+              data-accessible="I began using large computer simulations to study black holes, neutron stars, and what happens when the two merge."
+            ></p>
+
+          </div>
+
+          <span class="timeline-plus" aria-hidden="true">+</span>
+
+        </button>
+
+
+        <div class="timeline-details">
+
+          <p
+            class="timeline-mode-text"
+            data-technical="Numerical relativity became the framework for my graduate research. My work uses simulations of strong-field gravity and relativistic matter to study BHNS inspiral, merger dynamics, tidal disruption, and the matter remaining outside the black hole after merger."
+            data-accessible="This is where my work became primarily computational. The simulations follow both the curved spacetime around the binary and the neutron-star matter as the two objects orbit, collide, and merge."
+          ></p>
+
+          <div class="timeline-meta">
+
+            <div class="timeline-meta-block">
+              <span>Advisor</span>
+              Dr. Francois Foucart
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Physics</span>
+              Strong gravity · relativistic hydrodynamics
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article class="timeline-milestone">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
+      </div>
+
+      <div class="timeline-card">
+
+        <button
+          class="timeline-head"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <div>
+
+            <div class="timeline-eyebrow">
+              BHNS disruption + matter
+            </div>
+
+            <h3>
+              Tidal disruption, remnant disks, and ejecta
+            </h3>
+
+            <p
+              class="timeline-summary timeline-mode-text"
+              data-technical="Studied BHNS systems close to the neutron-star disruption threshold, including remnant matter, dynamical ejecta, and ejecta composition."
+              data-accessible="I studied the boundary between a neutron star being swallowed almost whole and being torn apart first, and what matter survives or escapes when disruption occurs."
+            ></p>
+
+          </div>
+
+          <span class="timeline-plus" aria-hidden="true">+</span>
+
+        </button>
+
+
+        <div class="timeline-details">
+
+          <p
+            class="timeline-mode-text"
+            data-technical="Near the disruption threshold, relatively small changes in binary properties can alter whether the neutron star plunges into the black hole or is tidally disrupted beforehand. I studied systems in this regime and examined the surviving remnant disk, unbound dynamical ejecta, and properties of the expelled material, including composition."
+            data-accessible="Whether the neutron star is torn apart before reaching the black hole matters enormously for what remains after the merger. I studied systems near that dividing line and measured how much material stayed around the black hole or escaped into space."
+          ></p>
+
+          <div class="timeline-meta">
+
+            <div class="timeline-meta-block">
+              <span>Questions</span>
+              When does disruption occur? · How much matter survives? · What is ejected?
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Context</span>
+              BHNS systems in the GW230529 mass regime
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article class="timeline-milestone">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
+      </div>
+
+<div class="timeline-card">
+
+  <button
+    class="timeline-head"
+    type="button"
+    aria-expanded="false"
+  >
+
+    <div>
+
+      <div class="timeline-eyebrow">
+        Gravitational waves · current
+      </div>
+
+      <h3>
+        Expanding the numerical BHNS waveform catalog
+      </h3>
+
+      <p
+        class="timeline-summary timeline-mode-text"
+        data-technical="Helped produce new numerical-relativity BHNS simulations to expand the publicly available set of BHNS merger simulations, and am comparing their gravitational waveforms with existing waveform models."
+        data-accessible="I helped create new computer simulations of black hole-neutron star mergers that will become publicly available for other researchers to use. I am now comparing the gravitational-wave signals from those simulations with the faster models used to analyze real detections."
+      ></p>
+
+    </div>
+
+    <span class="timeline-plus" aria-hidden="true">+</span>
+
+  </button>
+
+
+  <div class="timeline-details">
+
+    <p
+      class="timeline-mode-text"
+      data-technical="The new simulations broaden the numerical-relativity coverage of black hole-neutron star systems and are intended for inclusion in a forthcoming public catalog. Current work uses the resulting waveforms to test existing BHNS waveform models."
+      data-accessible="These simulations are intended to broaden the set of black hole-neutron star mergers available for other researchers to use. I am now using their gravitational-wave signals to test how well existing models reproduce different viewing angles and weaker features of the signal."
+    ></p>
+
+    <div class="timeline-meta">
+
+
+    </div>
+
+  </div>
+
+</div>
+
+    </article>
+
+
+    <!-- NEXT QUESTIONS -->
+
+    <div class="timeline-chapter">
+      Where the questions can go next
+    </div>
+
+
+    <article class="timeline-milestone timeline-future">
+
+      <div class="timeline-marker-wrap">
+        <div class="timeline-marker" aria-hidden="true"></div>
+      </div>
+
+      <div class="timeline-card">
+
+        <button
+          class="timeline-head"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <div>
+
+            <div class="timeline-eyebrow">
+              Emerging scientific interests
+            </div>
+
+            <h3>
+              From merger matter to composition and observables
+            </h3>
+
+            <p
+              class="timeline-summary timeline-mode-text"
+              data-technical="Interested in connecting the physical properties of merger ejecta to downstream composition, nucleosynthesis, and observable consequences."
+              data-accessible="I am interested in following the expelled matter farther: what it becomes, what elements it may help produce, and what traces of that process astronomers could eventually observe."
+            ></p>
+
+          </div>
+
+          <span class="timeline-plus" aria-hidden="true">+</span>
+
+        </button>
+
+
+        <div class="timeline-details">
+
+          <p
+            class="timeline-mode-text"
+            data-technical="One natural extension of merger simulations is to use the thermodynamic and compositional state of the ejecta as input for downstream questions about nucleosynthesis and multimessenger observables."
+            data-accessible="This is a direction I am interested in exploring rather than something I would present as finished work. The idea is to connect what simulations tell us about merger debris to the later astrophysics of what that material can make and how it might be seen."
+          ></p>
+
+          <div class="timeline-meta">
+
+            <div class="timeline-meta-block">
+              <span>Status</span>
+              Exploring
+            </div>
+
+            <div class="timeline-meta-block">
+              <span>Connections</span>
+              Composition · nucleosynthesis · multimessenger observables
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
 
     <!-- ===================================================
          CURRENT INTERESTS
@@ -178,7 +604,7 @@
 
     <section class="science-current">
 
-      <p class="panel-number">04</p>
+      <p class="panel-number">03</p>
 
       <div class="science-current-grid">
 
@@ -223,6 +649,130 @@
     </div>
 
   </footer>
+<script>
+  (() => {
 
+    const timeline = document.querySelector(".science-timeline");
+
+    if (!timeline) {
+      return;
+    }
+
+
+    const modeButtons = [
+      ...timeline.querySelectorAll("[data-timeline-mode]")
+    ];
+
+    const modeText = [
+      ...timeline.querySelectorAll(".timeline-mode-text")
+    ];
+
+    const milestones = [
+      ...timeline.querySelectorAll(".timeline-milestone")
+    ];
+
+    const spineFill =
+      timeline.querySelector(".timeline-spine-fill");
+
+
+    let mode = "technical";
+
+
+    function renderMode() {
+
+      modeText.forEach((element) => {
+
+        element.textContent =
+          element.dataset[mode] || "";
+
+      });
+
+
+      modeButtons.forEach((button) => {
+
+        const active =
+          button.dataset.timelineMode === mode;
+
+        button.classList.toggle("active", active);
+
+        button.setAttribute(
+          "aria-pressed",
+          String(active)
+        );
+
+      });
+
+    }
+
+
+    function updateSpine() {
+
+      let highestOpen = -1;
+
+      milestones.forEach((milestone, index) => {
+
+        if (milestone.classList.contains("open")) {
+          highestOpen = Math.max(highestOpen, index);
+        }
+
+      });
+
+
+      const amount =
+        highestOpen < 0
+          ? 0
+          : ((highestOpen + 1) / milestones.length) * 100;
+
+
+      spineFill.style.height = `${amount}%`;
+
+    }
+
+
+    milestones.forEach((milestone) => {
+
+      const button =
+        milestone.querySelector(".timeline-head");
+
+      button.addEventListener("click", () => {
+
+        const opening =
+          !milestone.classList.contains("open");
+
+        milestone.classList.toggle(
+          "open",
+          opening
+        );
+
+        button.setAttribute(
+          "aria-expanded",
+          String(opening)
+        );
+
+        updateSpine();
+
+      });
+
+    });
+
+
+    modeButtons.forEach((button) => {
+
+      button.addEventListener("click", () => {
+
+        mode = button.dataset.timelineMode;
+
+        renderMode();
+
+      });
+
+    });
+
+
+    renderMode();
+
+  })();
+</script>
+  
 </body>
 </html>
