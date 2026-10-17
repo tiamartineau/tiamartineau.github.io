@@ -508,7 +508,8 @@
 
   .desk-pencil-image { display: none; }
 
-  .book-pages { display: block; }
+  /* Let users swipe sideways through the book without disabling page scrolling. */
+  .book-pages { display: block; touch-action: pan-y; overscroll-behavior-x: contain; }
 
   .paper-page,
   .turn-face {

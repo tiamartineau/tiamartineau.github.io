@@ -186,19 +186,62 @@ window.addEventListener('keydown', event => {
   if (event.key === 'ArrowRight') { event.preventDefault(); forward(); }
   if (event.key === 'ArrowLeft') { event.preventDefault(); backward(); }
 });
-let touchStart = null;
-$('bookPages').addEventListener('pointerdown', event => {
-  if (event.pointerType !== 'mouse') touchStart = {x:event.clientX,y:event.clientY};
-});
-$('bookPages').addEventListener('pointerup', event => {
-  if (!touchStart) return;
-  const dx = event.clientX-touchStart.x, dy = event.clientY-touchStart.y;
-  touchStart = null;
-  if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)*1.3) dx < 0 ? forward() : backward();
-});
+// Use native touch events on mobile. Pointer events alone can be cancelled when
+// the browser claims a swipe for scrolling/navigation, particularly in Safari.
+// Only intercept clearly horizontal gestures so normal vertical scrolling works.
+const pages = $('bookPages');
+let swipeStart = null;
+let swipeMovedHorizontally = false;
+let suppressArtworkClickUntil = 0;
+
+pages.addEventListener('touchstart', event => {
+  if (!mobile.matches || event.touches.length !== 1 || lightbox.open || turning) {
+    swipeStart = null;
+    return;
+  }
+  const touch = event.touches[0];
+  swipeStart = { x: touch.clientX, y: touch.clientY };
+  swipeMovedHorizontally = false;
+}, { passive: true });
+
+pages.addEventListener('touchmove', event => {
+  if (!swipeStart || event.touches.length !== 1) return;
+  const touch = event.touches[0];
+  const dx = touch.clientX - swipeStart.x;
+  const dy = touch.clientY - swipeStart.y;
+  if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+    swipeMovedHorizontally = true;
+    // Claim only a horizontal page turn, not normal vertical scrolling.
+    if (event.cancelable) event.preventDefault();
+  }
+}, { passive: false });
+
+pages.addEventListener('touchend', event => {
+  if (!swipeStart) return;
+  const start = swipeStart;
+  swipeStart = null;
+  if (event.changedTouches.length !== 1 || !mobile.matches || turning) return;
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - start.x;
+  const dy = touch.clientY - start.y;
+  if ((swipeMovedHorizontally || Math.abs(dx) > 45) &&
+      Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+    // A touch can produce a synthetic click afterwards. Do not open the
+    // image lightbox by mistake after turning a page.
+    suppressArtworkClickUntil = Date.now() + 650;
+    if (event.cancelable) event.preventDefault();
+    if (dx < 0) forward(); else backward();
+  }
+}, { passive: false });
+
+pages.addEventListener('touchcancel', () => {
+  swipeStart = null;
+  swipeMovedHorizontally = false;
+}, { passive: true });
+
 $('book').addEventListener('click', event => {
   const target = event.target.closest('.artwork-open');
-  if (!target || turning) return;
+  if (!target || turning || Date.now() < suppressArtworkClickUntil) return;
   const item = artworks[Number(target.dataset.artIndex)];
   lightboxImage.src = imagePath(item.file);
   lightboxImage.alt = item.alt;
