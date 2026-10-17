@@ -177,67 +177,100 @@ function backward() {
 
 prev.addEventListener('click',backward);
 next.addEventListener('click',forward);
-cover.addEventListener('click',forward);
+cover.addEventListener('click', () => { if (Date.now() >= suppressCoverClickUntil) forward(); });
 cover.addEventListener('keydown', event => {
-  if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); forward(); }
+  if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); if (Date.now() >= suppressCoverClickUntil) forward(); }
 });
 window.addEventListener('keydown', event => {
   if (lightbox.open || event.altKey || event.ctrlKey || event.metaKey || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
   if (event.key === 'ArrowRight') { event.preventDefault(); forward(); }
   if (event.key === 'ArrowLeft') { event.preventDefault(); backward(); }
 });
-// Use native touch events on mobile. Pointer events alone can be cancelled when
-// the browser claims a swipe for scrolling/navigation, particularly in Safari.
-// Only intercept clearly horizontal gestures so normal vertical scrolling works.
-const pages = $('bookPages');
-let swipeStart = null;
-let swipeMovedHorizontally = false;
+/* Touch navigation, version 7.
+   Attach to the WHOLE notebook, including the cover and margins, rather than
+   just the page stack. A user should be able to swipe anywhere on the book.
+   Horizontal gestures are handled by the notebook. Vertical gestures continue
+   to scroll the page normally. This also supports touch-enabled tablets. */
+const swipeSurface = $('book');
+let gesture = null;
 let suppressArtworkClickUntil = 0;
+let suppressCoverClickUntil = 0;
 
-pages.addEventListener('touchstart', event => {
-  if (!mobile.matches || event.touches.length !== 1 || lightbox.open || turning) {
-    swipeStart = null;
-    return;
+function beginGesture(x, y, id) {
+  if (lightbox.open || turning) return;
+  gesture = { x, y, id, lock: null };
+}
+function moveGesture(x, y, event) {
+  if (!gesture) return;
+  const dx = x - gesture.x, dy = y - gesture.y;
+  if (!gesture.lock && Math.hypot(dx, dy) > 12) {
+    gesture.lock = Math.abs(dx) > Math.abs(dy) * 1.15 ? 'horizontal' : 'vertical';
   }
-  const touch = event.touches[0];
-  swipeStart = { x: touch.clientX, y: touch.clientY };
-  swipeMovedHorizontally = false;
-}, { passive: true });
+  if (gesture.lock === 'horizontal' && event?.cancelable) event.preventDefault();
+}
+function finishGesture(x, y, event) {
+  if (!gesture) return;
+  const dx = x - gesture.x, dy = y - gesture.y;
+  const locked = gesture.lock;
+  gesture = null;
+  if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy) * 1.15 || locked === 'vertical') return;
+  // Prevent the synthetic click emitted after touchend from opening a painting
+  // or re-opening a cover that has just been swiped away.
+  suppressArtworkClickUntil = Date.now() + 800;
+  suppressCoverClickUntil = Date.now() + 800;
+  if (event?.cancelable) event.preventDefault();
+  if (dx < 0) forward(); else backward();
+}
 
-pages.addEventListener('touchmove', event => {
-  if (!swipeStart || event.touches.length !== 1) return;
-  const touch = event.touches[0];
-  const dx = touch.clientX - swipeStart.x;
-  const dy = touch.clientY - swipeStart.y;
-  if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-    swipeMovedHorizontally = true;
-    // Claim only a horizontal page turn, not normal vertical scrolling.
-    if (event.cancelable) event.preventDefault();
+swipeSurface.addEventListener('touchstart', event => {
+  if (event.touches.length !== 1) { gesture = null; return; }
+  const t = event.touches[0];
+  beginGesture(t.clientX, t.clientY, t.identifier);
+}, {passive: true});
+
+swipeSurface.addEventListener('touchmove', event => {
+  if (!gesture || event.touches.length !== 1) return;
+  const t = event.touches[0];
+  if (t.identifier !== gesture.id) return;
+  moveGesture(t.clientX, t.clientY, event);
+}, {passive: false});
+
+swipeSurface.addEventListener('touchend', event => {
+  if (!gesture) return;
+  for (let i = 0; i < event.changedTouches.length; i++) {
+    const t = event.changedTouches[i];
+    if (t.identifier === gesture.id) {
+      finishGesture(t.clientX, t.clientY, event);
+      break;
+    }
   }
-}, { passive: false });
+}, {passive: false});
 
-pages.addEventListener('touchend', event => {
-  if (!swipeStart) return;
-  const start = swipeStart;
-  swipeStart = null;
-  if (event.changedTouches.length !== 1 || !mobile.matches || turning) return;
-  const touch = event.changedTouches[0];
-  const dx = touch.clientX - start.x;
-  const dy = touch.clientY - start.y;
-  if ((swipeMovedHorizontally || Math.abs(dx) > 45) &&
-      Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-    // A touch can produce a synthetic click afterwards. Do not open the
-    // image lightbox by mistake after turning a page.
-    suppressArtworkClickUntil = Date.now() + 650;
-    if (event.cancelable) event.preventDefault();
-    if (dx < 0) forward(); else backward();
+swipeSurface.addEventListener('touchcancel', () => { gesture = null; }, {passive: true});
+
+/* Fallback for mouse/trackpad dragging and touch devices that primarily send
+   pointer events. Touch pointers are excluded here to avoid double turns. */
+let drag = null;
+swipeSurface.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse' || event.button !== 0 || lightbox.open || turning) return;
+  drag = {x: event.clientX, y: event.clientY, moved: false};
+});
+swipeSurface.addEventListener('pointermove', event => {
+  if (!drag) return;
+  if (Math.abs(event.clientX - drag.x) > 10) drag.moved = true;
+});
+swipeSurface.addEventListener('pointerup', event => {
+  if (!drag) return;
+  const {x,y,moved} = drag;
+  drag = null;
+  if (moved) {
+    // Reuse the same distance and direction checks as touch navigation.
+    beginGesture(x, y, 'mouse');
+    finishGesture(event.clientX, event.clientY, event);
   }
-}, { passive: false });
-
-pages.addEventListener('touchcancel', () => {
-  swipeStart = null;
-  swipeMovedHorizontally = false;
-}, { passive: true });
+});
+swipeSurface.addEventListener('pointercancel', () => { drag = null; });
+swipeSurface.addEventListener('dragstart', event => { if (event.target.closest('img')) event.preventDefault(); });
 
 $('book').addEventListener('click', event => {
   const target = event.target.closest('.artwork-open');

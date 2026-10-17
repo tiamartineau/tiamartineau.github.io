@@ -578,3 +578,17 @@
 
   .book-progress-track > span { transition: none; }
 }
+
+/* v7: horizontal touch gestures are handled by the notebook, while vertical
+   gestures remain available for scrolling. Covers and mounted artwork included. */
+.book,
+.book-cover,
+.book-open,
+.book-pages,
+.paper-page,
+.artwork-open,
+.artwork-open img {
+  touch-action: pan-y pinch-zoom;
+}
+.book { overscroll-behavior-x: contain; }
+.artwork-open img { -webkit-user-drag: none; user-select: none; }
