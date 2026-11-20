@@ -127,9 +127,67 @@ function finishTurn(toView, toPosition) {
   $('turnBack').classList.remove('end-page');
   renderBook();
 }
+function openCover(toPosition) {
+  const moveFocus = document.activeElement === cover || document.activeElement === next;
+  if (reducedMotion.matches) {
+    finishTurn('artwork', toPosition);
+    if (moveFocus) next.focus({ preventScroll: true });
+    return;
+  }
+
+  const book = $('book');
+  const bookRect = book.getBoundingClientRect();
+  const coverRect = cover.getBoundingClientRect();
+  const flap = document.createElement('div');
+  flap.className = 'cover-flap';
+  flap.setAttribute('aria-hidden', 'true');
+  flap.inert = true;
+  const face = cover.cloneNode(true);
+  face.removeAttribute('id');
+  flap.append(face);
+  Object.assign(flap.style, {
+    left: `${coverRect.left - bookRect.left}px`,
+    top: `${coverRect.top - bookRect.top}px`,
+    width: `${coverRect.width}px`,
+    height: `${coverRect.height}px`
+  });
+  book.append(flap);
+
+  turning = true;
+  view = 'artwork';
+  position = toPosition;
+  openBook.inert = true;
+  renderBook();
+
+  const firstPage = right.getBoundingClientRect();
+  const hingeShift = firstPage.left - coverRect.left;
+  const duration = 560;
+  const coverTurn = flap.animate([
+    { transform: 'perspective(1500px) translateX(0) rotateY(0)', opacity: 1 },
+    { transform: `perspective(1500px) translateX(${hingeShift}px) rotateY(-110deg)`, opacity: 1, offset: .72 },
+    { transform: `perspective(1500px) translateX(${hingeShift}px) rotateY(-165deg)`, opacity: 0 }
+  ], { duration, easing: 'cubic-bezier(.35, .05, .22, 1)' });
+
+  openBook.animate([{ opacity: 0 }, { opacity: 1, offset: .52 }, { opacity: 1 }], duration);
+  book.animate([
+    { height: `${bookRect.height}px` },
+    { height: `${book.getBoundingClientRect().height}px` }
+  ], { duration, easing: 'ease' });
+
+  function finishOpening() {
+    flap.remove();
+    openBook.inert = false;
+    turning = false;
+    updateControls();
+    if (moveFocus && document.activeElement === document.body) next.focus({ preventScroll: true });
+  }
+  coverTurn.finished.then(finishOpening, finishOpening);
+}
+
 function changeView(toView, toPosition, direction) {
   if (turning) return;
-  if (reducedMotion.matches || view === 'cover' || toView === 'cover') { finishTurn(toView,toPosition); return; }
+  if (view === 'cover' && toView === 'artwork') { openCover(toPosition); return; }
+  if (reducedMotion.matches || toView === 'cover') { finishTurn(toView,toPosition); return; }
   turning = true; updateControls();
   const oldLeft = left.innerHTML, oldRight = right.innerHTML;
   const newIndices = toView === 'end' ? [null,null] : (mobile.matches ? [null,toPosition] : toPosition === 0 ? [null,0] : [toPosition,toPosition+1 < artworks.length ? toPosition+1 : null]);

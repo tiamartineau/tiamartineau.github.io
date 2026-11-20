@@ -133,6 +133,32 @@
   transform: rotate(-1.8deg);
 }
 
+.cover-flap {
+  position: absolute;
+  z-index: 6;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.cover-flap .book-cover,
+.cover-flap::after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  backface-visibility: hidden;
+}
+
+.cover-flap::after {
+  content: "";
+  border-radius: 18px;
+  background: linear-gradient(90deg, #2b2324, #43393a 12%, #383031);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  transform: rotateY(180deg);
+}
+
 .book-open {
   width: min(940px, 82vw);
   height: min(640px, 48vw);
